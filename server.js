@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
+const helpers = require('./utils/helpers');
 
 // express session set-up
 const session = require('express-session');
@@ -22,7 +23,7 @@ const PORT = process.env.PORT || 3001;
 
 // handlebars setup
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 // express middleware
 app.use(express.json());
